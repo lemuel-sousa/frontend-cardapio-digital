@@ -16,7 +16,11 @@ const Input = ({ label, value, updateValue }: InputProps) => {
     return (
         <>
             <label className="text-gray-900 font-bold mb-2 text-lg">{label}</label>
-            <input className="p-3 border-2 border-gray-400 text-black text-opacity-90 text-lg rounded-xl w-full mb-3" value={value} onChange={e => updateValue(e.target.value)} />
+            <input
+                className="p-3 border-2 border-gray-400 text-black text-opacity-90 text-lg rounded-xl w-full mb-3"
+                value={value}
+                onChange={e => updateValue(e.target.value)}
+            />
         </>
     )
 }
@@ -44,6 +48,7 @@ export function CreateModal({ closeModal }: ModalProps) {
     }, [isSuccess])
 
 
+
     return (
         <div className="fixed bg-black bg-opacity-40 inset-0 overflow-hidden w-screen h-screen flex items-center justify-center z-10"
         >
@@ -52,11 +57,11 @@ export function CreateModal({ closeModal }: ModalProps) {
                 <form className="w-[96%]">
 
                     <Input label="Título" value={title} updateValue={setTitle} />
-                    <Input label="Preço" value={price} updateValue={setPrice} />
+                    <Input label="Preço" value={price === 0 ? '' : price} updateValue={setPrice} />
                     <Input label="Imagem" value={image} updateValue={setImage} />
 
                 </form>
-                <div className="flex items-center gap-28 mt-7 ">
+                <div className="flex items-center gap-28 mt-7">
                     <button
                         className="p-4 bg-slate-300 rounded-lg text-black  hover:bg-slate-400"
                         onClick={closeModal}
