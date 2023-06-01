@@ -57,9 +57,14 @@ export function CreateModal({ closeModal }: ModalProps) {
 
                 </form>
                 <div className="flex items-center gap-28 mt-7 ">
-                    <button className="p-4 bg-cyan-600 rounded-lg text-white hover:bg-red-700">fechar</button>
                     <button
-                        className=" w-24 p-4 bg-cyan-600 rounded-lg text-white hover:bg-green-600"
+                        className="p-4 bg-slate-300 rounded-lg text-black  hover:bg-slate-400"
+                        onClick={closeModal}
+                    >
+                        fechar</button>
+
+                    <button
+                        className=" w-24 p-4 bg-cyan-600 rounded-lg text-white font-semibold hover:bg-green-600"
                         onClick={submit}
                     >
                         {isLoading ? 'postando...' : 'postar'}
